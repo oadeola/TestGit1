@@ -1,17 +1,34 @@
-name: GitHub Actions Demo
-
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
-on:
-  push:
-  workflow_dispatch:
-
+name: Github Actions Demo
+on: [ push ]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+ Test:
+   runs-on: ubuntu-latest
+   steps:
+    - uses: actions/checkout@v2
+    - run: echo "🎉 The job was automatically triggered by a ${{github.event_name}} event."
+    - run: python main.py
 
-    steps:
-      - run: echo "🎉 Triggered by ${{ github.event_name }}"
-      - uses: actions/checkout@v4
-      - run: ls
-      - run: echo "Done!"
+
+
+
+
+
+
+
+# name: GitHub Actions Demo
+
+# run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+# on:
+#   push:
+#   workflow_dispatch:
+
+# jobs:
+#   Explore-GitHub-Actions:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - run: echo "🎉 Triggered by ${{ github.event_name }}"
+#       - uses: actions/checkout@v4
+#       - run: ls
+#       - run: echo "Done!"
